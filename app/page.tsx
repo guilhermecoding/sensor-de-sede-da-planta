@@ -53,7 +53,7 @@ export default function Home() {
           <div className="flex flex-row items-center mt-4 gap-2">
             <Waves className='text-gray-600 w-5 h-5' />
             <span className='text-base text-gray-600'>
-              Umidade do solo: {umidade !== null ? `${Number((100 - ((umidade / 1023) * 100)).toFixed(2))}%` : 'Carregando...'}
+              Umidade do solo: {umidade !== null ? `${Number((((1023 - Math.min(Math.max(umidade, 420), 1023)) / (1023 - 420)) * 100).toFixed(2))}%` : 'Carregando...'}
             </span>
           </div>
         </div>
